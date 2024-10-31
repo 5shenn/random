@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Check Weather</title>
+</head>
+<body>
+    <div id="inputBox" class="box">
+        <h2>Check Weather🌤️</h2>
+        <input id="cityInput" class="input" type="text" placeholder="Enter city/state"><br>
+        <button onclick="showWeather()"><strong>Search</strong></button>
+    </div>
+
+    <div id="loading" class="loading">
+        
+        <img src="no-brain-loading.gif" alt="">
+        
+    </div>
+
+    <div id="output" class="output">
+        <h2 id="cityHeader"></h2>
+        <p>Just look outside</p>
+    </div>
+
+    <script>
+        function showWeather() {
+            const cityInput = document.getElementById('cityInput').value;
+            const outputDiv = document.getElementById('output');
+            const cityHeader = document.getElementById('cityHeader');
+            const inputBox = document.getElementById('inputBox');
+            const loadingScreen = document.getElementById('loading');
+
+            cityHeader.textContent = `🌤️ ${cityInput || "Unknown Location"}'s weather:`;
+
+            inputBox.style.display = 'none';
+            loadingScreen.style.display = 'flex';
+
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                outputDiv.style.display = 'block';
+            }, 12000);
+        }
+    </script>
+</body>
+</html>
